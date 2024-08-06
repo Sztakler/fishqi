@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .button {
+        @apply bg-indigo-700 text-indigo-50 p-2 w-fit rounded-md hover:opacity-80;
+    }
+}
