@@ -10,11 +10,10 @@
                 :answer="answer"
                 :correctHighlighted="correctHighlighted"
                 :selected="flashcard.selectedAnswer"
-                :correct="flashcard.correctAnswer === flashcard.selectedAnswer"
+                :correct="flashcard.correctAnswer"
+                :index="index"
             />
         </ol>
-        {{ flashcard.selectedAnswer }}
-        {{ correctHighlighted }}
     </div>
 </template>
 

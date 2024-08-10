@@ -1,28 +1,26 @@
 <template>
-    <div class="rounded-md border-2 px-4 py-8" :class="highlightClasses">
+    <div
+        class="rounded-md border-2 px-4 py-8"
+        :class="{
+            'bg-white-200 border-2 border-slate-200 hover:border-slate-400':
+                !correctHighlighted && selected !== index,
+            'bg-red-200 border-red-600':
+                correctHighlighted &&
+                selected !== correct &&
+                selected === index,
+            'bg-indigo-200 border-indigo-600': selected === index,
+        }"
+    >
         {{ answer }}
-        <p>{{ highlightClasses }}</p>
-        <p>selected: {{ selected }}</p>
-        <p>correct: {{ correct }}</p>
-        <p>{{ correctHighlighted }}</p>
     </div>
 </template>
 
 <script setup>
-const { answer, correctHighlighted, selected, correct } = defineProps([
+const { answer, correctHighlighted, selected, correct, index } = defineProps([
     "answer",
     "correctHighlighted",
     "selected",
     "correct",
+    "index",
 ]);
-
-const highlightClasses = computed(() => {
-    const classes = ["bg-white", "bg-red-200", "bg-indigo-200"];
-    console.log("selected", selected);
-
-    if (selected) {
-        if (!correct && correctHighlighted) return classes[1];
-        else return classes[2];
-    } else return classes[0];
-});
 </script>
